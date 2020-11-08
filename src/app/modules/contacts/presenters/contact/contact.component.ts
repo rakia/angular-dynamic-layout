@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   @Output() save          = new EventEmitter<Contact>();
   @Output() search        = new EventEmitter<void>();
 
-  updateLayout: UpdateLayout = 'tabs'; // 'dialog' | 'tabs' | 'page'
+  updateLayout: UpdateLayout = 'dialog'; // 'dialog' | 'tabs' | 'page'
 
   // ---- For UpdateLayout = 'page'
   showList:       boolean = true;
