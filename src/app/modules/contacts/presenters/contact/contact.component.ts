@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   @Output() save          = new EventEmitter<Contact>();
   @Output() search        = new EventEmitter<void>();
 
-  updateLayout: UpdateLayout = 'page'; // 'dialog' | 'tabs' | 'page'
+  updateLayout: UpdateLayout = 'tabs'; // 'dialog' | 'tabs' | 'page'
 
   // ---- For UpdateLayout = 'page'
   showList:       boolean = true;
@@ -34,7 +34,6 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   selectedTabIndex: number = 0;
 
   // ---- For UpdateLayout = 'dialog'
-  dialogData:      UpdateDialogData<Contact>;
   updateDialogRef: MatDialogRef<ContactUpdateDialog>;
 
   _unsubscribeAll: Subject<boolean> = new Subject<boolean>();
@@ -63,7 +62,6 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   gotoUpdate(data: UpdatePageData<Contact>) {
-    this.dialogData = { entity: data.entity };
 
     if (data.mode === 'create') {
       this.openUpdatePage(data.entity, data.mode);

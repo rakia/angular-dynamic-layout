@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 import { Contact } from '../../../models/contact.model';
@@ -7,7 +7,7 @@ import { Contact } from '../../../models/contact.model';
   selector: 'contact-form',
   templateUrl: './contact-form.html'
 })
-export class ContactForm implements OnInit {
+export class ContactForm implements OnInit, OnChanges {
 
   @Input()  entity: Contact;
   @Output() save = new EventEmitter<Contact>();
@@ -21,8 +21,12 @@ export class ContactForm implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.form.patchValue(this.entity || {});
+  ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.entity && changes.entity.currentValue) {
+      this.form.patchValue(this.entity);
+    }
   }
 
   resetForm(): void {
