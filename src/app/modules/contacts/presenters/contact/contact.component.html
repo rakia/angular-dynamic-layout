@@ -1,0 +1,28 @@
+<mat-toolbar role="heading">
+  <h1> Contacts </h1>
+</mat-toolbar>
+
+<dynamic-layout [updateLayout]="updateLayout"
+                [updateTabs]="updateTabs"
+                [selectedTabIndex]="selectedTabIndex"
+                [entity]="dialogData?.entity"
+                [showList]="showList"
+                [showUpdate]="showUpdate"
+                (save)="save.emit($event)"
+                (gotoList)="gotoList()"
+                (removeUpdateTab)="removeUpdateTab($event)">
+
+  <div list>
+    <contact-list [dataList]="dataList"
+                  (deleteEntity)="delete.emit($event)"
+                  [savedEntity]="savedEntity"
+                  (gotoUpdate)="gotoUpdate($event)"
+                  (search)="search.emit($event)">
+    </contact-list>
+  </div>
+
+  <div update>
+    <contact-form [entity]="entityWithDetails" (save)="save.emit($event)"></contact-form>
+  </div>
+
+</dynamic-layout>

@@ -1,0 +1,60 @@
+<ng-template #list>
+  <ng-content select="[list]"></ng-content>
+</ng-template>
+
+<ng-template #update let-mode="mode" let-entity="entity">
+  <ng-content select="[update]"></ng-content>
+</ng-template>
+
+<!-- LAYOUT 1: dialog -->
+<ng-container *ngIf="updateLayout === 'dialog'">
+  <ng-container *ngTemplateOutlet="list"></ng-container>
+</ng-container>
+<!-- / LAYOUT 1: dialog -->
+
+<!-- LAYOUT 2: page -->
+<ng-container *ngIf="updateLayout === 'page'">
+  <ng-container *ngIf="showList">
+    <ng-container *ngTemplateOutlet="list"></ng-container>
+  </ng-container>
+
+  <div *ngIf="showUpdate" class="mat-card">
+    <div class="p-24" fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button (click)="onGotoList()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <ng-container *ngTemplateOutlet="update; context: {mode: mode, entity: entity}"></ng-container>
+  </div>
+</ng-container>
+<!-- / LAYOUT 2: page -->
+
+<!-- LAYOUT 3: tabs -->
+<mat-tab-group *ngIf="updateLayout === 'tabs'" animationDuration="0ms" dynamicHeight
+               [selectedIndex]="selectedTabIndex" (selectedIndexChange)="selectedTabIndex = $event">
+
+  <!-- LIST TAB-->
+  <mat-tab label="Data List">
+    <ng-container *ngTemplateOutlet="list"></ng-container>
+  </mat-tab>
+  <!-- / LIST TAB-->
+
+  <!-- UPDATE TABS -->
+  <mat-tab *ngFor="let tab of updateTabs; let index = index">
+
+    <!-- TAB LABEL-->
+    <ng-template mat-tab-label>
+      <div fxLayoutAlign="start center" fxFlex>
+        Update - {{tab.key}}
+        <mat-icon class="ml-8 close-tab-icon" (click)="removeUpdateTab.emit(index)">close</mat-icon>
+      </div>
+    </ng-template>
+    <!-- / TAB LABEL-->
+
+    <ng-container *ngTemplateOutlet="update; context: { mode: tab.updateTabData.mode, entity: tab.updateTabData.entity}"></ng-container>
+
+  </mat-tab>
+  <!-- / UPDATE TABS -->
+
+</mat-tab-group>
+<!-- / LAYOUT 3: tabs -->

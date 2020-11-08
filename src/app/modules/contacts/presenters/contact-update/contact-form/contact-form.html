@@ -1,0 +1,41 @@
+<div fxFlex fxLayout="column">
+
+  <div>
+    <form [formGroup]="form" class="p-24">
+
+      <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="5px">
+        <mat-form-field fxFlex>
+          <mat-label>ID</mat-label>
+          <input matInput formControlName="id" name="id" required />
+          <mat-error *ngIf="form.get('id').hasError('required')">ID is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" name="name" required />
+          <mat-error *ngIf="form.get('name').hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastName" name="lastName" required />
+          <mat-error *ngIf="form.get('lastName').hasError('required')">Last name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Job Title</mat-label>
+          <input matInput formControlName="jobTitle" name="jobTitle" required />
+          <mat-error *ngIf="form.get('jobTitle').hasError('required')">Job title is required</mat-error>
+        </mat-form-field>
+      </div>
+
+    </form>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" class="p-16" fxLayoutGap="10px">
+      <button mat-raised-button (click)="saveEntity()" [disabled]="form.invalid" color="primary" type="submit">Save</button>
+
+      <button mat-raised-button (click)="resetForm()">Reset</button>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div fxFlex fxLayout="column">
+
+  <mat-toolbar>
+    <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+      <h6> Contact Dialog </h6>
+
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div mat-dialog-content>
+    <contact-form [entity]="entity" (save)="save($event)"></contact-form>
+  </div>
+
+</div>
