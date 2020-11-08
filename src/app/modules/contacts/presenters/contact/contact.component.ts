@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 
 import { LayoutStyle, UpdateMode, UpdatePageData, UpdateTab } from '../../../../layout/models/update-tab.model';
 import { ContactUpdateDialog } from '../contact-update/contact-update-dialog/contact-update.dialog';
-import { UpdateDialogData } from '../../../../layout/models/update-dialog-data.model';
 import { Contact } from '../../models/contact.model';
 
 @Component({
