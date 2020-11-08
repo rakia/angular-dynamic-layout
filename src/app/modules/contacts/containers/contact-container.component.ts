@@ -6,7 +6,7 @@ import { ContactStoreService } from '../services/contact-store.service';
 
 @Component({
   selector: 'contact',
-  templateUrl: './contact.container.component.html',
+  templateUrl: './contact-container.component.html',
 })
 export class ContactContainerComponent implements OnInit, OnDestroy {
 

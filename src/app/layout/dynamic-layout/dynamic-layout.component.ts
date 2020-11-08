@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { UpdateLayout, UpdateMode, UpdateTab } from '../models/update-tab.model';
+import { LayoutStyle, UpdateMode, UpdateTab } from '../models/update-tab.model';
 
 @Component({
   selector: 'dynamic-layout',
@@ -9,7 +9,7 @@ import { UpdateLayout, UpdateMode, UpdateTab } from '../models/update-tab.model'
 })
 export class DynamicLayoutComponent<T> implements OnInit {
 
-  @Input() updateLayout: UpdateLayout;
+  @Input() updateLayout: LayoutStyle;
   @Input() entity: T;
   @Input() mode: UpdateMode;
   @Input() showList: boolean;

@@ -11,4 +11,4 @@ export interface UpdatePageData<T> {
 
 export declare type UpdateMode = 'create' | 'edit';
 
-export declare type UpdateLayout = 'dialog' | 'tabs' | 'page';
+export declare type LayoutStyle = 'dialog' | 'tabs' | 'page';

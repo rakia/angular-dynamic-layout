@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
-import { UpdateLayout, UpdateMode, UpdatePageData, UpdateTab } from '../../../../layout/models/update-tab.model';
+import { LayoutStyle, UpdateMode, UpdatePageData, UpdateTab } from '../../../../layout/models/update-tab.model';
 import { ContactUpdateDialog } from '../contact-update/contact-update-dialog/contact-update.dialog';
 import { UpdateDialogData } from '../../../../layout/models/update-dialog-data.model';
 import { Contact } from '../../models/contact.model';
@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   @Output() save          = new EventEmitter<Contact>();
   @Output() search        = new EventEmitter<void>();
 
-  updateLayout: UpdateLayout = 'dialog'; // 'dialog' | 'tabs' | 'page'
+  layoutStyle: LayoutStyle = 'dialog'; // 'dialog' | 'tabs' | 'page'
 
   // ---- For UpdateLayout = 'page'
   showList:       boolean = true;
@@ -49,13 +49,13 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     if (changes.saved && changes.saved.currentValue) {
-      if (this.updateLayout === 'dialog') {
+      if (this.layoutStyle === 'dialog') {
         this.updateDialogRef?.close();
       }
-      if (this.updateLayout === 'tabs') {
+      if (this.layoutStyle === 'tabs') {
         this.removeUpdateTab(this.selectedTabIndex);
       }
-      if (this.updateLayout === 'page') {
+      if (this.layoutStyle === 'page') {
         this.gotoList(this.savedEntity);
       }
     }
@@ -67,7 +67,7 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
       this.openUpdatePage(data.entity, data.mode);
 
     } else if (data.mode === 'edit') {
-      if (this.updateLayout === 'tabs') {
+      if (this.layoutStyle === 'tabs') {
 
         // If there is already an existing updateTab for this accReceipt.ReceiptNo, then go to it
         const updateTab: UpdateTab<Contact> =
@@ -87,7 +87,7 @@ export class ContactComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   openUpdatePage(entity: Contact, mode: UpdateMode, entityId?: any) {
-    switch (this.updateLayout) {
+    switch (this.layoutStyle) {
       case 'dialog':
         this.openUpdateDialog(entity, mode, entityId);
         break;

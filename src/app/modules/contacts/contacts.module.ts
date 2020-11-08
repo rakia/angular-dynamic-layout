@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { AngularMaterialModule     } from '../../shared/angular-material.module';
 import { LayoutModule              } from '../../layout/layout.module';
-import { ContactContainerComponent } from './containers/contact.container.component';
+import { ContactContainerComponent } from './containers/contact-container.component';
 import { ContactListComponent      } from './presenters/contact-list/contact-list.component';
 import { ContactComponent          } from './presenters/contact/contact.component';
 import { ContactStoreService       } from './services/contact-store.service';

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import {ContactContainerComponent} from './modules/contacts/containers/contact.container.component';
+
+import { ContactContainerComponent } from './modules/contacts/containers/contact-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'contacts', pathMatch: 'full' },
