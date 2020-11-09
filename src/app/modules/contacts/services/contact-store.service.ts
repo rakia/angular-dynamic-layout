@@ -3,18 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 
 import { Contact } from '../models/contact.model';
 import { ContactService } from './contact.service';
+import { BaseModuleStoreService } from '../../../shared/base-module/services';
 
 @Injectable()
-export class ContactStoreService {
-
-  private readonly _dataList          = new BehaviorSubject<Contact[]>([]);
-  private readonly _entityWithDetails = new BehaviorSubject<Contact>(null);
-  private readonly _savedEntity       = new BehaviorSubject<Contact>(null);
-  readonly dataList$          = this._dataList.asObservable();
-  readonly entityWithDetails$ = this._entityWithDetails.asObservable();
-  readonly savedEntity$       = this._savedEntity.asObservable();
+export class ContactStoreService extends BaseModuleStoreService<Contact> {
 
   constructor(private service: ContactService) {
+    super();
     this.search();
   }
 
@@ -45,24 +40,4 @@ export class ContactStoreService {
     });*/
   }
 
-  getDataList(): Contact[] {
-    return this._dataList.getValue();
-  }
-  private _setDataList(data: Contact[]) {
-    this._dataList.next(data);
-  }
-
-  getSavedEntity(): Contact {
-    return this._savedEntity.getValue();
-  }
-  private _setSavedEntity(entity: Contact) {
-    this._savedEntity.next(entity);
-  }
-
-  getEntityWithDetails(): Contact {
-    return this._entityWithDetails.getValue();
-  }
-  private _setEntityWithDetails(entity: Contact) {
-    this._entityWithDetails.next(entity);
-  }
 }

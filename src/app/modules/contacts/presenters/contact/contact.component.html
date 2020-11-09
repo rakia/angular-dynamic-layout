@@ -14,8 +14,8 @@
 
   <div list>
     <contact-list [dataList]="dataList"
-                  (deleteEntity)="delete.emit($event)"
                   [savedEntity]="savedEntity"
+                  (deleteEntity)="delete.emit($event)"
                   (gotoUpdate)="gotoUpdate($event)"
                   (search)="search.emit($event)">
     </contact-list>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { LayoutStyle, UpdateMode, UpdateTab } from '../models/update-tab.model';
+import { LayoutStyle, UpdateMode, UpdateTab } from '../../models/update-tab.model';
 
 @Component({
   selector: 'dynamic-layout',

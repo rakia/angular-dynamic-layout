@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Contact } from '../../../models/contact.model';
-import { UpdateDialogData } from '../../../../../layout/models/update-dialog-data.model';
+import { UpdateDialogData } from '../../../../../shared/base-module/models/update-dialog-data.model';
 
 @Component({
   selector: 'contact-update',

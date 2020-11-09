@@ -22,7 +22,7 @@
       <!-- Delete Column -->
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> Delete </th>
-        <td mat-cell *matCellDef="let element; let i = index" (click)="deleteRow(element)">
+        <td mat-cell *matCellDef="let element; let i = index" (click)="deleteRow(element, 'id')">
             <mat-icon class="action-icon">delete</mat-icon>
         </td>
       </ng-container>
