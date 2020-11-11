@@ -14,7 +14,7 @@ import { Contact } from '../../models/contact.model';
 })
 export class ContactComponent extends BasePresenter<Contact> implements OnInit, OnChanges, OnDestroy {
 
-  layoutStyle: LayoutStyle = 'page'; // 'dialog' | 'tabs' | 'page'
+  layoutStyle: LayoutStyle = 'dialog'; // 'dialog' | 'tabs' | 'page'
   entityIdName = 'id';
 
   // ---- For layoutStyle = 'dialog'
