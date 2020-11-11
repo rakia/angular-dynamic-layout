@@ -7,13 +7,13 @@
 </ng-template>
 
 <!-- LAYOUT 1: dialog -->
-<ng-container *ngIf="updateLayout === 'dialog'">
+<ng-container *ngIf="layoutStyle === 'dialog'">
   <ng-container *ngTemplateOutlet="list"></ng-container>
 </ng-container>
 <!-- / LAYOUT 1: dialog -->
 
 <!-- LAYOUT 2: page -->
-<ng-container *ngIf="updateLayout === 'page'">
+<ng-container *ngIf="layoutStyle === 'page'">
   <ng-container *ngIf="showList">
     <ng-container *ngTemplateOutlet="list"></ng-container>
   </ng-container>
@@ -30,7 +30,7 @@
 <!-- / LAYOUT 2: page -->
 
 <!-- LAYOUT 3: tabs -->
-<mat-tab-group *ngIf="updateLayout === 'tabs'" animationDuration="0ms" dynamicHeight
+<mat-tab-group *ngIf="layoutStyle === 'tabs'" animationDuration="0ms" dynamicHeight
                [selectedIndex]="selectedTabIndex" (selectedIndexChange)="selectedTabIndex = $event">
 
   <!-- LIST TAB-->

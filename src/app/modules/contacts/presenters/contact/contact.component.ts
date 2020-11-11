@@ -17,7 +17,7 @@ export class ContactComponent extends BasePresenter<Contact> implements OnInit, 
   layoutStyle: LayoutStyle = 'page'; // 'dialog' | 'tabs' | 'page'
   entityIdName = 'id';
 
-  // ---- For UpdateLayout = 'dialog'
+  // ---- For layoutStyle = 'dialog'
   updateDialogRef: MatDialogRef<ContactUpdateDialog>;
   _unsubscribeAll: Subject<boolean> = new Subject<boolean>();
 

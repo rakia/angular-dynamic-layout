@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Subject   } from 'rxjs';
 
 import { LayoutStyle, UpdateMode, UpdatePageData, UpdateTab } from '../models/update-tab.model';
 import { ContactUpdateDialog } from '../../../modules/contacts/presenters/contact-update/contact-update-dialog/contact-update.dialog';
@@ -9,7 +8,7 @@ import { ContactUpdateDialog } from '../../../modules/contacts/presenters/contac
   selector: 'base-presenter',
   template: ``
 })
-export class BasePresenter<T> implements OnInit, OnChanges, OnDestroy {
+export class BasePresenter<T> implements OnInit, OnChanges {
 
   @Input()  dataList:          T[];
   @Input()  savedEntity:       T;
@@ -130,7 +129,5 @@ export class BasePresenter<T> implements OnInit, OnChanges, OnDestroy {
     this.showList   = true;
     this.showUpdate = false;
   }
-
-  ngOnDestroy() {}
 
 }
