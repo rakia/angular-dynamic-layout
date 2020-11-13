@@ -1,3 +1,8 @@
+# Dynamic Angular Templates: How to Build an App With 3 Layout Styles?
+## An advanced use case of Angular ngTemplateLayout
+
+The blog describing this project is available here: https://medium.com/better-programming/angular-dynamic-layout-with-ngtemplate-8b6faa995a8f
+
 # NgDynamicLayout
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
