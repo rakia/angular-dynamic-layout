@@ -1,3 +1,6 @@
+You can follow me and find more of my articles here: https://rakiabensassi.medium.com/
+And if you would like to support me, you can sign up here: https://rakiabensassi.medium.com/membership
+
 # Dynamic Angular Templates: How to Build an App With 3 Layout Styles?
 ## An advanced use case of Angular ngTemplateLayout
 
